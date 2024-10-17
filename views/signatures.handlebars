@@ -1,0 +1,95 @@
+<div>
+  <div id="intro"
+    class="container p-1 p-md-4 p-lg-5 mb-5">
+    {{#if page_url}}
+
+    <div class="row">
+      <div class="col-12">
+        <p class="lead">
+          Collecting signatures for <a target="_blank"
+            href="{{page_url}}">{{page_url}}</a>.
+        </p>
+      </div>
+      {{#if user}}
+      <div class="col-12">
+        <p>You are logged in as <strong>{{user.username_full}}</strong>.</p>
+        {{#if has_signed}}
+        <a class="btn btn-danger"
+          href="/signatures?action=remove&url={{page_url}}">Remove signature</a>
+        {{else}}
+        <a class="btn btn-primary"
+          href="/signatures?action=add&url={{page_url}}">Add signature</a>
+        {{/if}}
+        <a class="btn btn-secondary"
+          href="/signatures?action=logout&url={{page_url}}">Log out</a>
+      </div>
+      {{else}}
+      <div class="col-12 col-md-6">
+        <form type="get"
+          action="https://auth.stefanbohacek.dev/"
+          id="sign-in-form">
+          <input type="hidden"
+            name="method"
+            value="fediverse">
+          <input type="hidden"
+            name="scope"
+            value="read:accounts">
+          <input type="hidden"
+            name="app"
+            value="signatures">
+          <input type="hidden"
+            name="environment"
+            value="{{#if is_development}}development{{else}}production{{/if}}">
+          <label for="fediverse-server"
+            class="d-block form-label text-start">Log into your instance or server</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text">https://</span>
+            <input required
+              name="instance"
+              type="text"
+              class="form-control"
+              placeholder="mastodon.social">
+            <button class="btn btn-outline-secondary"
+              type="submit"
+              id="sign-in">Manage your signature</button>
+          </div>
+        </form>
+      </div>
+          <div class="form-text">Currently supported: Mastodon, Friendica, Pleroma, Akkoma, Misskey, Calckey, and Firefish</div>
+
+      {{/if}}
+      <div class="col-12">
+        {{#if signatures}}
+        <div class="card mt-4">
+          <div class="card-body">
+            <p class="card-text">
+              {{#each signatures}}
+              <a class="p-1"
+                target="_blank"
+                href="https://{{this.server}}/@{{this.account}}">
+                @{{this.account}}@{{this.server}}
+              </a>
+              {{/each}}
+            </p>
+          </div>
+        </div>
+        {{else}}
+        <p class="mt-4">
+          No signatures found.
+        </p>
+        {{/if}}
+      </div>
+    </div>
+    {{else}}
+    <div class="row">
+      <div class="col-12">
+        <p class="lead">
+          Redirecting...
+        </p>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</div>
+<script type="module"
+  src="/js/main.min.js"></script>

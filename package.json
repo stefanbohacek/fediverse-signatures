@@ -1,0 +1,51 @@
+{
+  "name": "fediverse-signatures",
+  "version": "1.0.0",
+  "description": "Polls for the fediverse.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon -L server.js & CHOKIDAR_USEPOLLING=true gulp -f gulpfile.cjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stefan Bohacek",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.7",
+    "express-session": "^1.17.3",
+    "hbs": "^4.2.0",
+    "mssql": "^11.0.1",
+    "mysql": "^2.18.1",
+    "sequelize": "^6.37.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "babelify": "^10.0.0",
+    "browserify": "^17.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.1.0",
+    "gulp-less": "^5.0.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-streamify": "^1.0.2",
+    "gulp-uglify": "^3.0.2",
+    "gulp-util": "^3.0.8",
+    "jshint": "^2.13.6",
+    "jshint-stylish": "^2.2.1",
+    "merge-stream": "^2.0.0",
+    "node-sass": "^9.0.0",
+    "nodemon": "^2.0.22",
+    "vinyl-source-stream": "^2.0.0"
+  }
+}

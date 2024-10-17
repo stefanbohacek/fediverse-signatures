@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Fediverse Signatures</title>
+    <meta property="og:title" content="Fediverse Signatures" />
+    <meta name="twitter:title" content="Fediverse Signatures" />
+    <meta name="description" content="View results of an ongoing poll. A tool by @stefan@stefanbohacek.online." />
+    <meta property="og:description" content="View results of an ongoing poll. A tool by @stefan@stefanbohacek.online." />
+    <meta name="twitter:description" content="View results of an ongoing poll. A tool by @stefan@stefanbohacek.online." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://stefanbohacek.com" />
+    <meta property="og:image" content="/images/thumbnails/thumbnail-1200x800.png" /> 
+    <meta property="og:image:alt" content="An example poll rendered by my tool. Just a basic Bootstrap-styled card with the description of the poll and 4 options showing the votes for each option with a bar colored based on the results." /> 
+    <meta property="twitter:image:src" content="/images/thumbnails/thumbnail-1200x800.png" /> 
+    <meta property="twitter:image:alt" content="An example poll rendered by my tool. Just a basic Bootstrap-styled card with the description of the poll and 4 options showing the votes for each option with a bar colored based on the results." /> 
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@stefanbohacek" />
+    <meta name="twitter:domain" content="https://stefanbohacek.com/" />
+    <!-- TODO: Favicons -->
+    <!-- <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+        <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+        <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+        <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+        <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+        <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+        <meta name="theme-color" content="#712cf9"> -->
+    <link href="/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.min.css" rel="stylesheet">
+</head>
+<body data-bs-theme="dark" class="d-flex flex-column h-100 pt-3">
+    <script>
+        const toggleDarkMode = (enabled) => {
+            if (enabled){
+                document.body.setAttribute('data-bs-theme', 'dark');
+            } else {
+                document.body.setAttribute('data-bs-theme', 'light');
+            }
+        }
+
+        const enableDarkMode = () => {
+            if (window.matchMedia) {
+                toggleDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+                toggleDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
+            });
+        }
+        enableDarkMode();
+    </script>
+    {{!-- {{> header }}    --}}
+    <main class="flex-shrink-0 mt-3">
+        <div class="container mt-5">
+          {{{body}}}
+        </div>
+    </main>
+    {{> footer }}
+    {{!-- <script src="/libs/bootstrap/js/bootstrap.min.js" ></script> --}}
+</body>
+</html>
