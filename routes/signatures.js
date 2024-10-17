@@ -73,6 +73,7 @@ router.get("/", async (req, res) => {
     }
 
     if (req.query.format === "json") {
+      res.header("Access-Control-Allow-Origin", "*");
       res.json({
         page_url: pageUrl,
         signatures,
