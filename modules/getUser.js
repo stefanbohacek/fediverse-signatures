@@ -27,7 +27,7 @@ export default async (instance, token) => {
         name: respJSON.display_name || respJSON.username,
         username: respJSON.username,
         username_full: usernameFull,
-        domain: usernameFull.split("@")[2],
+        domain: instance,
         avatar_url: respJSON.avatar_static,
         token,
       };
@@ -48,13 +48,12 @@ export default async (instance, token) => {
 
       respJSON = await resp.json();
       usernameFull = `@${respJSON.username}@${instance}`;
-      console.log(respJSON);
 
       user = {
         name: respJSON.name,
         username: respJSON.username,
         username_full: usernameFull,
-        domain: usernameFull.split("@")[1],
+        domain: instance,
         avatar_url: respJSON.avatarUrl,
         token,
       };
