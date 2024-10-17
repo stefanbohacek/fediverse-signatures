@@ -42,7 +42,7 @@
             name="environment"
             value="{{#if is_development}}development{{else}}production{{/if}}">
           <label for="fediverse-server"
-            class="d-block form-label text-start">Your server name</label>
+            class="d-block form-label text-start">Your fediverse server name</label>
           <div class="input-group mb-3">
             <span class="input-group-text">https://</span>
             <input required
@@ -57,19 +57,24 @@
         </form>
       </div>
       <div class="col-12">
+        <p>
+          No private information is stored on my server or shared with any third parties. Running into any issues or have questions? <a href="https://stefanbohacek.com/contact/">Please reach out!</a>
+        </p>
         <details>
           <summary>How to sign</summary>
           <ol>
-            <li>Start by typing your server name in the input field above, eg: mastodon.social</li>
-            <li>Click the "Manage signature" button</li>
-            <li>Currently supported fediverse platforms are: Mastodon, Friendica, Pleroma, Akkoma, Misskey, Calckey, and
-              Firefish</li>
+            <li>Start by typing your server name in the input field above, eg: mastodon.social.
+              <ul>
+                <li>Currently supported: Mastodon, Friendica, Pleroma, Akkoma, Misskey, Calckey, and Firefish.
+              </ul>
+            </li>
+            <li>Click the "Manage signature" button.</li>
+            <li>Log in to your account and confirm that you want to access the signature verification app<./li>
+            <li>The app will require minimal access to your account just to verify who you are.</li>
+            <li>After you confirm, you will then have the option to add your signature, or log out.</li>
+            <li>You can return any time and remove your signature.</li>
           </ol>
-          <p>
-            Running into any issues? <a href="https://stefanbohacek.com/contact/">Please reach out!</a>
-          </p>
         </details>
-
       </div>
       {{/if}}
       <div class="col-12">
