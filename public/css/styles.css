@@ -1,5 +1,8 @@
 body[data-bs-theme=dark] .bg-light {
   background-color: var(--bs-body-bg) !important; }
 
+#intro {
+  max-width: 900px !important; }
+
 body[data-bs-theme=dark] .bg-light {
   background-color: var(--bs-body-bg) !important; }

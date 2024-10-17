@@ -5,7 +5,7 @@
 
     <div class="row">
       <div class="col-12">
-        <p class="lead">
+        <p class="lead fw-bold">
           Collecting signatures for <a target="_blank"
             href="{{page_url}}">{{page_url}}</a>.
         </p>
@@ -24,7 +24,8 @@
           href="/signatures?action=logout&url={{page_url}}">Log out</a>
       </div>
       {{else}}
-      <div class="col-12 col-md-6">
+      <div class="col-12">
+
         <form type="get"
           action="https://auth.stefanbohacek.dev/"
           id="sign-in-form">
@@ -41,7 +42,7 @@
             name="environment"
             value="{{#if is_development}}development{{else}}production{{/if}}">
           <label for="fediverse-server"
-            class="d-block form-label text-start">Log into your instance or server</label>
+            class="d-block form-label text-start">Your server name</label>
           <div class="input-group mb-3">
             <span class="input-group-text">https://</span>
             <input required
@@ -55,29 +56,42 @@
           </div>
         </form>
       </div>
-          <div class="form-text">Currently supported: Mastodon, Friendica, Pleroma, Akkoma, Misskey, Calckey, and Firefish</div>
+      <div class="col-12">
+        <details>
+          <summary>How to sign</summary>
+          <ol>
+            <li>Start by typing your server name below, eg: mastodon.social</li>
+            <li>Click the "Manage your signature" button</li>
+            <li>Currently supported fediverse platforms are: Mastodon, Friendica, Pleroma, Akkoma, Misskey, Calckey, and
+              Firefish</li>
+          </ol>
+          <p>
+            Running into any issues? <a href="https://stefanbohacek.com/contact/">Please reach out!</a>
+          </p>
+        </details>
 
+      </div>
       {{/if}}
       <div class="col-12">
-        {{#if signatures}}
-        <div class="card mt-4">
+        <div class="card mt-5">
           <div class="card-body">
             <p class="card-text">
-              {{#each signatures}}
-              <a class="p-1"
-                target="_blank"
-                href="https://{{this.server}}/@{{this.account}}">
-                @{{this.account}}@{{this.server}}
-              </a>
-              {{/each}}
+              {{#if signatures}}
+                {{#each signatures}}
+                <a class="p-1"
+                  target="_blank"
+                  href="https://{{this.server}}/@{{this.account}}">
+                  @{{this.account}}@{{this.server}}
+                </a>
+                {{/each}}
+              {{else}}
+                <p>
+                  No signatures found. Be the first to sign!
+                </p>
+              {{/if}}
             </p>
           </div>
         </div>
-        {{else}}
-        <p class="mt-4">
-          No signatures found.
-        </p>
-        {{/if}}
       </div>
     </div>
     {{else}}
