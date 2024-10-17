@@ -48,6 +48,7 @@ export default async (instance, token) => {
 
       respJSON = await resp.json();
       usernameFull = `@${respJSON.username}@${instance}`;
+      console.log(respJSON);
 
       user = {
         name: respJSON.name,
