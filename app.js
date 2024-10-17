@@ -30,7 +30,8 @@ app.use(
     secret: "lX$Pijn(edR9y6%34,HV",
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: !process.env.IS_DEVELOPMENT },
+    cookie: { secure: false },
+    // cookie: { secure: !process.env.IS_DEVELOPMENT },
   })
 );
 
