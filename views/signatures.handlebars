@@ -42,7 +42,7 @@
             name="environment"
             value="{{#if is_development}}development{{else}}production{{/if}}">
           <label for="fediverse-server"
-            class="d-block form-label text-start">Your fediverse server name</label>
+            class="d-block form-label text-start">Your fediverse server name (eg: mastodon.social)</label>
           <div class="input-group mb-3">
             <span class="input-group-text">https://</span>
             <input required
@@ -63,10 +63,7 @@
         <details>
           <summary>How to sign</summary>
           <ol>
-            <li>Start by typing your server name in the input field above, eg: mastodon.social.
-              <ul>
-                <li>Currently supported: Mastodon, Friendica, Pleroma, Akkoma, Misskey, Calckey, and Firefish.
-              </ul>
+            <li>Start by typing your server name, without <code>https</code> or your username, in the input field above, eg: mastodon.social. (See the <a href="https://github.com/stefanbohacek/fediverse-signatures#supported-platforms">list currently supported platforms</a>.)
             </li>
             <li>Click the "Manage signature" button.</li>
             <li>Log in to your account and confirm that you want to access the signature verification app</li>
