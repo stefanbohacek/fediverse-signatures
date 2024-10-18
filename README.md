@@ -4,6 +4,16 @@
 
 Collect signatures for an article on your blog or a website page.
 
+## Supported platforms
+
+- Mastodon
+- Friendica
+- Pleroma
+- Akkoma
+- Misskey
+- Calckey
+- Firefish
+
 ## Add to your website
 
 Please see the included `example.html` file for a full example of the code needed to add a fediverse signature feature to a web page.
