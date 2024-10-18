@@ -13,7 +13,22 @@
       <div class="col-sm-12 col-md-6">
         <h1 class="text-start">Collect signatures for your cause</h1>
         <p class="lead mb-4">
-          Currently under active development, check back soon!
+        <form type="get"
+          action="/signatures">
+          <label for="url"
+            class="d-block form-label text-start">Link to your page</label>
+          <div class="input-group mb-3">
+            <input required=""
+              name="url"
+              type="url"
+              class="form-control"
+              placeholder="https://example.com/">
+            <button class="btn btn-outline-secondary"
+              type="submit"
+              id="sign-in">Submit</button>
+          </div>
+          <div class="form-text">See full instructions <a href="https://github.com/stefanbohacek/fediverse-signatures">on GitHub</a>.</div>
+        </form>
         </p>
         <p id="loading-animation"
           class="d-none mt-4 card-text placeholder-wave">
