@@ -2,8 +2,12 @@ import "dotenv/config";
 import express from "express";
 import * as util from "util";
 import mysql from "mysql";
+import { Filter } from "bad-words";
 import getUser from "../modules/getUser.js";
 import debug from "../modules/debug.js";
+import { sign } from "crypto";
+
+const filter = new Filter();
 
 let connection = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -31,7 +35,7 @@ router.get("/", async (req, res) => {
       switch (req.query.action) {
         case "logout":
           delete req.session.user;
-        break;
+          break;
         case "remove":
           fn = util.promisify(connection.query).bind(connection);
           rows = await fn(
@@ -71,6 +75,16 @@ router.get("/", async (req, res) => {
         });
       }
     }
+
+    signatures = signatures.map((signature) => {
+      return {
+        account: signature.account,
+        server: signature.server,
+        account_clean: filter.clean(signature.account),
+        server_clean: filter.clean(signature.server),
+        url: `https://${signature.server}/@${signature.account}`
+      };
+    });
 
     if (req.query.format === "json") {
       res.header("Access-Control-Allow-Origin", "*");

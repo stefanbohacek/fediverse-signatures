@@ -85,8 +85,8 @@
                 {{#each signatures}}
                 <a class="p-1"
                   target="_blank"
-                  href="https://{{this.server}}/@{{this.account}}">
-                  @{{this.account}}@{{this.server}}
+                  href="{{this.url}}">
+                  @{{this.account_clean}}@{{this.server_clean}}
                 </a>
                 {{/each}}
               {{else}}
