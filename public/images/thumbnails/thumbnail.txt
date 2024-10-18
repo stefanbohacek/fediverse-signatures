@@ -1,0 +1,1 @@
+A short paragraph of blacked out text, followed by a bordered box with links of accounts who signed the page and a button that will initiate the signature process.

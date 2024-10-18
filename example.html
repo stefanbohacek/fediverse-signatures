@@ -4,16 +4,23 @@
       id="signatures"></p>
   </div>
 </div>
+<p class="mt-5">
+  <a id="signatures-link"
+    class="btn"
+    href="#">Add your signature</a>
+</p>
 <script>
   (async () => {
-    const resp = await fetch("https://signatures.stefanbohacek.dev/signatures?url=https%3A%2F%2Fstefanbohacek.com%2Fblog%2Fa-fediverse-invitation-for-artists%2F&format=json");
+    const signatureURL = `https://signatures.stefanbohacek.dev/signatures?url=${encodeURIComponent(window.location.origin + window.location.pathname)}`;
+    document.getElementById("signatures-link").href = signatureURL;
+    const resp = await fetch(`${signatureURL}&format=json`);
     const respJSON = await resp.json();
-    if (respJSON && respJSON.signatures){
+    if (respJSON && respJSON.signatures) {
       document.getElementById("signatures").innerHTML = respJSON.signatures.map(signature => /* html */ `
       <a class="p-1"
         target="_blank"
-        href="https://${signature.server}/@${signature.account}">
-        @${signature.account}@${signature.server}
+        href="${signature.url}">
+        @${signature.account_clean}@${signature.server_clean}
       </a>
     `).join("");
     }
@@ -21,5 +28,3 @@
     console.error(err);
   });
 </script>
-
-<p class="mt-5"><a class="btn" href="https://signatures.stefanbohacek.dev/signatures?url=https%3A%2F%2Fstefanbohacek.com%2Fblog%2Fa-fediverse-invitation-for-artists%2F">Add your signature</a></p>
