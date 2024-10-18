@@ -35,6 +35,7 @@ export default async (instance, token) => {
 
     case "misskey":
     case "calckey":
+    case "sharkey":
     case "firefish":
       resp = await fetch(`https://${instance}/api/i`, {
         headers: {

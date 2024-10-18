@@ -12,6 +12,7 @@ Collect signatures for an article on your blog or a website page.
 - Akkoma
 - Misskey
 - Calckey
+- Sharkey
 - Firefish
 
 ## Add to your website
