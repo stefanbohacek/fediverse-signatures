@@ -62,17 +62,21 @@ router.get("/", async (req, res) => {
   } else {
     if (pageUrl) {
       const fn = util.promisify(connection.query).bind(connection);
-      const rows = await fn("SELECT * from signatures WHERE page_url = ?", [
-        pageUrl,
-      ]);
-
-      if (rows && rows.length > 0) {
-        signatures = rows.map((signature) => {
-          return {
-            account: signature.account,
-            server: signature.server,
-          };
-        });
+      try {
+        const rows = await fn("SELECT * from signatures WHERE page_url = ?", [
+          pageUrl,
+        ]);
+  
+        if (rows && rows.length > 0) {
+          signatures = rows.map((signature) => {
+            return {
+              account: signature.account,
+              server: signature.server,
+            };
+          });
+        }
+      } catch (error) {
+        console.log("error", error);
       }
     }
 
