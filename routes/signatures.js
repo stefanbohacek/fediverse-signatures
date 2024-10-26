@@ -8,17 +8,16 @@ import debug from "../modules/debug.js";
 import { sign } from "crypto";
 
 const filter = new Filter();
-
-let connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-});
-
 const router = express.Router();
 
 router.get("/", async (req, res) => {
+  let connection = mysql.createConnection({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+  });
+  
   const instance = req.query.instance;
   const token = req.query.token;
   let pageUrl = req.query.url;
