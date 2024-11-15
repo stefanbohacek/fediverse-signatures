@@ -42,7 +42,7 @@
             name="environment"
             value="{{#if is_development}}development{{else}}production{{/if}}">
           <label for="fediverse-server"
-            class="d-block form-label text-start">Your fediverse server name (eg: mastodon.social)</label>
+            class="d-block form-label text-start">Your fediverse server name, without the username (eg: mastodon.social)</label>
           <div class="input-group mb-3">
             <span class="input-group-text">https://</span>
             <input required
@@ -58,7 +58,10 @@
       </div>
       <div class="col-12">
         <p>
-          No private information is stored on my server or shared with any third parties. Running into any issues or have questions? <a href="https://stefanbohacek.com/contact/">Please reach out!</a>
+          No private information is stored on my server or shared with any third parties. Note that the website that sent you here may not immediatelly update after you remove your signature, please contact the person who made it directly.
+        </p>
+        <p>
+          Running into any issues or have questions? <a href="https://stefanbohacek.com/contact/">Please reach out!</a>          
         </p>
         <details class="d-inline-block">
           <summary>How to sign</summary>
